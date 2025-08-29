@@ -1,0 +1,19 @@
+Exercise 1: A point class
+
+Create a class point with two ints: x, y.
+
+Implement:
+
+Default constructor (0,0)
+
+Parametrized constructor (x,y)
+
+Copy constructor
+
+Assignment operator
+
+Destructor
+
+Implement operator<< to print (x, y)
+
+In main(), create, copy, and print points.

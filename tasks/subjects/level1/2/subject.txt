@@ -1,0 +1,19 @@
+Exercise 2: A Rectangle class
+
+Create a class rectangle with width and height (ints): w,h.
+
+Implement:
+
+Default constructor (0,0)
+
+Parametrized constructor (w,h)
+
+Copy constructor
+
+Assignment operator
+
+Destructor
+
+operator<< to print "Width: w, Height: h".
+
+In main(), create, copy, and print points.

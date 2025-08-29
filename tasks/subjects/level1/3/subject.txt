@@ -1,0 +1,19 @@
+Exercise 2: A Circle class
+
+Create a class circle with radius(double).
+
+Implement:
+
+Default constructor
+
+Parametrized constructor
+
+Copy constructor
+
+Assignment operator
+
+Destructor
+
+operator<< to print "Radius: r".
+
+In main(), create, copy, and print points.

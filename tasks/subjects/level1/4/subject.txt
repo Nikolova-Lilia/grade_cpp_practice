@@ -1,0 +1,19 @@
+Exercise 2: A Student class
+
+Create a class with name (string) and age (int).
+
+Implement:
+
+Default constructor
+
+Parametrized constructor
+
+Copy constructor
+
+Assignment operator
+
+Destructor
+
+operator<< to print "Name: n, Age: a".
+
+In main(), create, copy, and print points.

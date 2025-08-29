@@ -1,0 +1,19 @@
+Exercise 2: A Book class
+
+Create a class book with title (string) and pages (int).
+
+Implement:
+
+Default constructor
+
+Parametrized constructor
+
+Copy constructor
+
+Assignment operator
+
+Destructor
+
+operator<< to print "Title: t, Pages: p".
+
+In main(), create, copy, and print points.

@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+class Circle {
+private:
+    double radius;
+public:
+    Circle() : radius(0.0) {}
+    Circle(double r) : radius(r) {}
+    Circle(const Circle &c) : radius(c.radius) {}
+    Circle& operator=(const Circle &c) {
+        if (this != &c) {
+            radius = c.radius;
+        }
+        return *this;
+    }
+    ~Circle() {}
+
+    friend ostream& operator<<(ostream &os, const Circle &c) {
+        os << "Radius: " << c.radius;
+        return os;
+    }
+};
+
+int main() {
+    Circle c1;
+    Circle c2(7.5);
+    Circle c3 = c2;
+    c1 = c3;
+
+    cout << c1 << endl;
+    cout << c2 << endl;
+    cout << c3 << endl;
+
+    return 0;
+}
