@@ -17,3 +17,18 @@ Destructor
 operator<< to print "Name: n, Age: a".
 
 In main(), create, copy, and print points.
+
+Your main:
+
+int main() {
+    Student s1;
+    Student s2("Alice", 20);
+    Student s3 = s2;
+    s1 = s3;
+
+    cout << s1 << endl;
+    cout << s2 << endl;
+    cout << s3 << endl;
+
+    return 0;
+}

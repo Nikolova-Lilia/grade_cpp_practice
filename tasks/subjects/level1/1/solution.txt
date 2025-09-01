@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+class Point {
+private:
+    int x, y;
+public:
+    // Default constructor
+    Point() : x(0), y(0) {}
+
+    // Parameterized constructor
+    Point(int x, int y) : x(x), y(y) {}
+
+    // Copy constructor
+    Point(const Point &p) : x(p.x), y(p.y) {}
+
+    // Assignment operator
+    Point& operator=(const Point &p) {
+        if (this != &p) {
+            x = p.x;
+            y = p.y;
+        }
+        return *this;
+    }
+
+    // Destructor
+    ~Point() {}
+
+    // Print operator
+    friend ostream& operator<<(ostream &os, const Point &p) {
+        os << "(" << p.x << ", " << p.y << ")";
+        return os;
+    }
+};
+
+int main() {
+    Point p1;               // default
+    Point p2(3, 4);         // parameterized
+    Point p3 = p2;          // copy constructor
+    p1 = p3;                // assignment
+
+    cout << p1 << endl;
+    cout << p2 << endl;
+    cout << p3 << endl;
+
+    return 0;
+}

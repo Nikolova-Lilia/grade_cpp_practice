@@ -17,3 +17,18 @@ Destructor
 operator<< to print "Width: w, Height: h".
 
 In main(), create, copy, and print points.
+
+Your main:
+
+int main() {
+    Rectangle r1;
+    Rectangle r2(5, 10);
+    Rectangle r3 = r2;
+    r1 = r3;
+
+    cout << r1 << endl;
+    cout << r2 << endl;
+    cout << r3 << endl;
+
+    return 0;
+}

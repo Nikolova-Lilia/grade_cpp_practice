@@ -17,3 +17,18 @@ Destructor
 operator<< to print "Title: t, Pages: p".
 
 In main(), create, copy, and print points.
+
+Your main:
+
+int main() {
+    Book b1;
+    Book b2("C++ Basics", 250);
+    Book b3 = b2;
+    b1 = b3;
+
+    cout << b1 << endl;
+    cout << b2 << endl;
+    cout << b3 << endl;
+
+    return 0;
+}

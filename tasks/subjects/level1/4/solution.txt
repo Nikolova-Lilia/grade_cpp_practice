@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+public:
+    Student() : name(""), age(0) {}
+    Student(string n, int a) : name(n), age(a) {}
+    Student(const Student &s) : name(s.name), age(s.age) {}
+    Student& operator=(const Student &s) {
+        if (this != &s) {
+            name = s.name;
+            age = s.age;
+        }
+        return *this;
+    }
+    ~Student() {}
+
+    friend ostream& operator<<(ostream &os, const Student &s) {
+        os << "Name: " << s.name << ", Age: " << s.age;
+        return os;
+    }
+};
+
+int main() {
+    Student s1;
+    Student s2("Alice", 20);
+    Student s3 = s2;
+    s1 = s3;
+
+    cout << s1 << endl;
+    cout << s2 << endl;
+    cout << s3 << endl;
+
+    return 0;
+}

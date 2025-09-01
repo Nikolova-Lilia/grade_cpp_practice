@@ -17,3 +17,18 @@ Destructor
 Implement operator<< to print (x, y)
 
 In main(), create, copy, and print points.
+
+Your main:
+
+int main() {
+    Point p1;               // default
+    Point p2(3, 4);         // parameterized
+    Point p3 = p2;          // copy constructor
+    p1 = p3;                // assignment
+
+    cout << p1 << endl;
+    cout << p2 << endl;
+    cout << p3 << endl;
+
+    return 0;
+}
