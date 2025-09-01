@@ -128,7 +128,6 @@ if __name__ == "__main__":
             print("Available levels:")
             for i, lvl in enumerate(levels, 1):
                 print(f"{i}. {lvl}")
-
             choice = input(f"Choose a level (1-{len(levels)}) or type level name (e.g., level1), or EXIT: ").strip().lower()
 
             if choice.upper() == "EXIT":
@@ -146,15 +145,12 @@ if __name__ == "__main__":
                 print("❌ Invalid choice, try again.\n")
                 continue
 
-            # ✅ New: Confirm the chosen level, but don't run yet
-            print(f"\n✅ Level chosen: {current_level}")
-            print("Press Enter to generate an exercise, or type NewNew to pick another level.\n")
-            continue  # go back to main loop
+            # Immediately pick and display a random exercise after selecting the level
+            test_subject(current_level)
 
-        # Prompt after level is chosen
+        # Prompt after level is chosen and first exercise displayed
         user_input = input(
-            "Press Enter to generate/evaluate an exercise, "
-            "New to choose another exercise, "
+            "Press Enter to evaluate, New to choose another exercise, "
             "NewNew to choose another level, Exit to close the program: "
         ).strip().lower()
 
