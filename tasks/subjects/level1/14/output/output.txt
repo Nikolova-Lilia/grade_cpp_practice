@@ -1,0 +1,3 @@
+Color: Blue, Length: 15 cm
+Color: Blue, Length: 15 cm
+Color: Blue, Length: 15 cm

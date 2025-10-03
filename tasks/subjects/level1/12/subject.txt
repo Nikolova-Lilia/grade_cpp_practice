@@ -1,0 +1,33 @@
+Exercise 12: A TV class
+
+Create a class TV with brand (string) and size (int, inches).
+
+Implement:
+
+Default constructor
+
+Parametrized constructor
+
+Copy constructor
+
+Assignment operator
+
+Destructor
+
+operator<< to print "Brand: b, Size: s inch".
+
+In main(), create, copy, and print points.
+
+Your main:
+
+int main() {
+    TV t1;
+    TV t2("Samsung", 55);
+    TV t3 = t2;
+    t1 = t3;
+
+    cout << t1 << endl;
+    cout << t2 << endl;
+    cout << t3 << endl;
+    return 0;
+}

@@ -1,6 +1,6 @@
-Exercise 4: A Student class
+Exercise 13: A TV class
 
-Create a class with name (string) and age (int).
+Create a class Smartphone with model (string) and battery (int, mAh).
 
 Implement:
 
@@ -14,21 +14,20 @@ Assignment operator
 
 Destructor
 
-operator<< to print "Name: n, Age: a".
+operator<< to print "Model: m, Battery: b mAh".
 
 In main(), create, copy, and print points.
 
 Your main:
 
 int main() {
-    Student s1;
-    Student s2("Alice", 20);
-    Student s3 = s2;
+    Smartphone s1;
+    Smartphone s2("iPhone 15", 3200);
+    Smartphone s3 = s2;
     s1 = s3;
 
     cout << s1 << endl;
     cout << s2 << endl;
     cout << s3 << endl;
-
     return 0;
 }

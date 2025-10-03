@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Camera {
+private:
+    string brand;
+    int megapixels;
+public:
+    Camera() : brand(""), megapixels(0) {}
+    Camera(string b, int m) : brand(b), megapixels(m) {}
+    Camera(const Camera &c) : brand(c.brand), megapixels(c.megapixels) {}
+    Camera& operator=(const Camera &c) {
+        if (this != &c) {
+            brand = c.brand;
+            megapixels = c.megapixels;
+        }
+        return *this;
+    }
+    ~Camera() {}
+
+    friend ostream& operator<<(ostream &os, const Camera &c) {
+        os << "Brand: " << c.brand << ", Megapixels: " << c.megapixels << " MP";
+        return os;
+    }
+};
+
+int main() {
+    Camera c1;
+    Camera c2("Canon", 24);
+    Camera c3 = c2;
+    c1 = c3;
+
+    cout << c1 << endl;
+    cout << c2 << endl;
+    cout << c3 << endl;
+    return 0;
+}

@@ -1,6 +1,6 @@
-Exercise 3: A Circle class
+Exercise 6: A Car class
 
-Create a class circle with radius(double).
+Create a class car with brand (string) and year (int).
 
 Implement:
 
@@ -14,16 +14,16 @@ Assignment operator
 
 Destructor
 
-operator<< to print "Radius: r".
+operator<< to print "Brand: b, Year: y".
 
 In main(), create, copy, and print points.
 
 Your main:
 
 int main() {
-    Circle c1;
-    Circle c2(7.5);
-    Circle c3 = c2;
+    Car c1;
+    Car c2("Toyota", 2020);
+    Car c3 = c2;
     c1 = c3;
 
     cout << c1 << endl;

@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Animal {
+private:
+    string name;
+    int age;
+public:
+    Animal() : name(""), age(0) {}
+    Animal(string n, int a) : name(n), age(a) {}
+    Animal(const Animal &a) : name(a.name), age(a.age) {}
+    Animal& operator=(const Animal &a) {
+        if (this != &a) {
+            name = a.name;
+            age = a.age;
+        }
+        return *this;
+    }
+    ~Animal() {}
+
+    friend ostream& operator<<(ostream &os, const Animal &a) {
+        os << "Name: " << a.name << ", Age: " << a.age;
+        return os;
+    }
+};
+
+int main() {
+    Animal a1;
+    Animal a2("Leo", 5);
+    Animal a3 = a2;
+    a1 = a3;
+
+    cout << a1 << endl;
+    cout << a2 << endl;
+    cout << a3 << endl;
+    return 0;
+}

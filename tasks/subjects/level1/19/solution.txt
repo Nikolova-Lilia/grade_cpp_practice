@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Guitar {
+private:
+    string brand;
+    int strings;
+public:
+    Guitar() : brand(""), strings(0) {}
+    Guitar(string b, int s) : brand(b), strings(s) {}
+    Guitar(const Guitar &g) : brand(g.brand), strings(g.strings) {}
+    Guitar& operator=(const Guitar &g) {
+        if (this != &g) {
+            brand = g.brand;
+            strings = g.strings;
+        }
+        return *this;
+    }
+    ~Guitar() {}
+
+    friend ostream& operator<<(ostream &os, const Guitar &g) {
+        os << "Brand: " << g.brand << ", Strings: " << g.strings;
+        return os;
+    }
+};
+
+int main() {
+    Guitar g1;
+    Guitar g2("Fender", 6);
+    Guitar g3 = g2;
+    g1 = g3;
+
+    cout << g1 << endl;
+    cout << g2 << endl;
+    cout << g3 << endl;
+    return 0;
+}

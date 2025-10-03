@@ -1,6 +1,6 @@
-Exercise 3: A Circle class
+Exercise 15: A Chair class
 
-Create a class circle with radius(double).
+Create a class Chair with material (string) and weight (int, kg).
 
 Implement:
 
@@ -14,21 +14,20 @@ Assignment operator
 
 Destructor
 
-operator<< to print "Radius: r".
+operator<< to print "Material: m, Weight: w kg".
 
 In main(), create, copy, and print points.
 
 Your main:
 
 int main() {
-    Circle c1;
-    Circle c2(7.5);
-    Circle c3 = c2;
+    Chair c1;
+    Chair c2("Wood", 12);
+    Chair c3 = c2;
     c1 = c3;
 
     cout << c1 << endl;
     cout << c2 << endl;
     cout << c3 << endl;
-
     return 0;
 }

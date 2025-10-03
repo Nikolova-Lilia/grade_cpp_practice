@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Laptop {
+private:
+    string brand;
+    int ram;
+public:
+    Laptop() : brand(""), ram(0) {}
+    Laptop(string b, int r) : brand(b), ram(r) {}
+    Laptop(const Laptop &l) : brand(l.brand), ram(l.ram) {}
+    Laptop& operator=(const Laptop &l) {
+        if (this != &l) {
+            brand = l.brand;
+            ram = l.ram;
+        }
+        return *this;
+    }
+    ~Laptop() {}
+
+    friend ostream& operator<<(ostream &os, const Laptop &l) {
+        os << "Brand: " << l.brand << ", RAM: " << l.ram << " GB";
+        return os;
+    }
+};
+
+int main() {
+    Laptop l1;
+    Laptop l2("Dell", 16);
+    Laptop l3 = l2;
+    l1 = l3;
+
+    cout << l1 << endl;
+    cout << l2 << endl;
+    cout << l3 << endl;
+
+    return 0;
+}

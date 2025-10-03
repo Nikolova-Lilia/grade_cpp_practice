@@ -1,6 +1,6 @@
-Exercise 4: A Student class
+Exercise 11: An Animal class
 
-Create a class with name (string) and age (int).
+Create a class Animal with name (string) and age (int).
 
 Implement:
 
@@ -21,14 +21,13 @@ In main(), create, copy, and print points.
 Your main:
 
 int main() {
-    Student s1;
-    Student s2("Alice", 20);
-    Student s3 = s2;
-    s1 = s3;
+    Animal a1;
+    Animal a2("Leo", 5);
+    Animal a3 = a2;
+    a1 = a3;
 
-    cout << s1 << endl;
-    cout << s2 << endl;
-    cout << s3 << endl;
-
+    cout << a1 << endl;
+    cout << a2 << endl;
+    cout << a3 << endl;
     return 0;
 }

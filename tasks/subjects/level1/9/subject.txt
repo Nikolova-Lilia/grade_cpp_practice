@@ -1,0 +1,34 @@
+Exercise 9: A Movie class
+
+Create a class Movie with title (string) and duration (int, minutes).
+
+Implement:
+
+Default constructor
+
+Parametrized constructor
+
+Copy constructor
+
+Assignment operator
+
+Destructor
+
+operator<< to print "Title: t, Duration: d min".
+
+In main(), create, copy, and print points.
+
+Your main:
+
+int main() {
+    Movie m1;
+    Movie m2("Inception", 148);
+    Movie m3 = m2;
+    m1 = m3;
+
+    cout << m1 << endl;
+    cout << m2 << endl;
+    cout << m3 << endl;
+
+    return 0;
+}

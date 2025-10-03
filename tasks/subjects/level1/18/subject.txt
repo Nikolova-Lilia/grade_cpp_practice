@@ -1,0 +1,33 @@
+Exercise 18: A Flower class
+
+Create a class Flower with name (string) and height (int, cm).
+
+Implement:
+
+Default constructor
+
+Parametrized constructor
+
+Copy constructor
+
+Assignment operator
+
+Destructor
+
+operator<< to print "Name: n, Height: h cm".
+
+In main(), create, copy, and print points.
+
+Your main:
+
+int main() {
+    Flower f1;
+    Flower f2("Rose", 30);
+    Flower f3 = f2;
+    f1 = f3;
+
+    cout << f1 << endl;
+    cout << f2 << endl;
+    cout << f3 << endl;
+    return 0;
+}

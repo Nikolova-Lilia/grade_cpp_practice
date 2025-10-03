@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+private:
+    int accountNumber;
+    double balance;
+public:
+    BankAccount() : accountNumber(0), balance(0.0) {}
+    BankAccount(int n, double b) : accountNumber(n), balance(b) {}
+    BankAccount(const BankAccount &a) : accountNumber(a.accountNumber), balance(a.balance) {}
+    BankAccount& operator=(const BankAccount &a) {
+        if (this != &a) {
+            accountNumber = a.accountNumber;
+            balance = a.balance;
+        }
+        return *this;
+    }
+    ~BankAccount() {}
+
+    friend ostream& operator<<(ostream &os, const BankAccount &a) {
+        os << "Account: " << a.accountNumber << ", Balance: " << a.balance;
+        return os;
+    }
+};
+
+int main() {
+    BankAccount a1;
+    BankAccount a2(12345, 1500.75);
+    BankAccount a3 = a2;
+    a1 = a3;
+
+    cout << a1 << endl;
+    cout << a2 << endl;
+    cout << a3 << endl;
+
+    return 0;
+}

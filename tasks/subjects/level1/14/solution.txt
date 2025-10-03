@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Pen {
+private:
+    string color;
+    int length;
+public:
+    Pen() : color(""), length(0) {}
+    Pen(string c, int l) : color(c), length(l) {}
+    Pen(const Pen &p) : color(p.color), length(p.length) {}
+    Pen& operator=(const Pen &p) {
+        if (this != &p) {
+            color = p.color;
+            length = p.length;
+        }
+        return *this;
+    }
+    ~Pen() {}
+
+    friend ostream& operator<<(ostream &os, const Pen &p) {
+        os << "Color: " << p.color << ", Length: " << p.length << " cm";
+        return os;
+    }
+};
+
+int main() {
+    Pen p1;
+    Pen p2("Blue", 15);
+    Pen p3 = p2;
+    p1 = p3;
+
+    cout << p1 << endl;
+    cout << p2 << endl;
+    cout << p3 << endl;
+    return 0;
+}

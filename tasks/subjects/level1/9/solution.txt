@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Movie {
+private:
+    string title;
+    int duration;
+public:
+    Movie() : title(""), duration(0) {}
+    Movie(string t, int d) : title(t), duration(d) {}
+    Movie(const Movie &m) : title(m.title), duration(m.duration) {}
+    Movie& operator=(const Movie &m) {
+        if (this != &m) {
+            title = m.title;
+            duration = m.duration;
+        }
+        return *this;
+    }
+    ~Movie() {}
+
+    friend ostream& operator<<(ostream &os, const Movie &m) {
+        os << "Title: " << m.title << ", Duration: " << m.duration << " min";
+        return os;
+    }
+};
+
+int main() {
+    Movie m1;
+    Movie m2("Inception", 148);
+    Movie m3 = m2;
+    m1 = m3;
+
+    cout << m1 << endl;
+    cout << m2 << endl;
+    cout << m3 << endl;
+
+    return 0;
+}

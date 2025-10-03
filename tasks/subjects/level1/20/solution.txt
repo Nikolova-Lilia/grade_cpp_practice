@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Shoe {
+private:
+    int size;
+    string color;
+public:
+    Shoe() : size(0), color("") {}
+    Shoe(int s, string c) : size(s), color(c) {}
+    Shoe(const Shoe &s) : size(s.size), color(s.color) {}
+    Shoe& operator=(const Shoe &s) {
+        if (this != &s) {
+            size = s.size;
+            color = s.color;
+        }
+        return *this;
+    }
+    ~Shoe() {}
+
+    friend ostream& operator<<(ostream &os, const Shoe &s) {
+        os << "Size: " << s.size << ", Color: " << s.color;
+        return os;
+    }
+};
+
+int main() {
+    Shoe s1;
+    Shoe s2(42, "Black");
+    Shoe s3 = s2;
+    s1 = s3;
+
+    cout << s1 << endl;
+    cout << s2 << endl;
+    cout << s3 << endl;
+    return 0;
+}

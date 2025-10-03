@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Chair {
+private:
+    string material;
+    int weight;
+public:
+    Chair() : material(""), weight(0) {}
+    Chair(string m, int w) : material(m), weight(w) {}
+    Chair(const Chair &c) : material(c.material), weight(c.weight) {}
+    Chair& operator=(const Chair &c) {
+        if (this != &c) {
+            material = c.material;
+            weight = c.weight;
+        }
+        return *this;
+    }
+    ~Chair() {}
+
+    friend ostream& operator<<(ostream &os, const Chair &c) {
+        os << "Material: " << c.material << ", Weight: " << c.weight << " kg";
+        return os;
+    }
+};
+
+int main() {
+    Chair c1;
+    Chair c2("Wood", 12);
+    Chair c3 = c2;
+    c1 = c3;
+
+    cout << c1 << endl;
+    cout << c2 << endl;
+    cout << c3 << endl;
+    return 0;
+}

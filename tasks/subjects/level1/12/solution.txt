@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class TV {
+private:
+    string brand;
+    int size;
+public:
+    TV() : brand(""), size(0) {}
+    TV(string b, int s) : brand(b), size(s) {}
+    TV(const TV &t) : brand(t.brand), size(t.size) {}
+    TV& operator=(const TV &t) {
+        if (this != &t) {
+            brand = t.brand;
+            size = t.size;
+        }
+        return *this;
+    }
+    ~TV() {}
+
+    friend ostream& operator<<(ostream &os, const TV &t) {
+        os << "Brand: " << t.brand << ", Size: " << t.size << " inch";
+        return os;
+    }
+};
+
+int main() {
+    TV t1;
+    TV t2("Samsung", 55);
+    TV t3 = t2;
+    t1 = t3;
+
+    cout << t1 << endl;
+    cout << t2 << endl;
+    cout << t3 << endl;
+    return 0;
+}

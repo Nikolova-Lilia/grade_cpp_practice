@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Smartphone {
+private:
+    string model;
+    int battery;
+public:
+    Smartphone() : model(""), battery(0) {}
+    Smartphone(string m, int b) : model(m), battery(b) {}
+    Smartphone(const Smartphone &s) : model(s.model), battery(s.battery) {}
+    Smartphone& operator=(const Smartphone &s) {
+        if (this != &s) {
+            model = s.model;
+            battery = s.battery;
+        }
+        return *this;
+    }
+    ~Smartphone() {}
+
+    friend ostream& operator<<(ostream &os, const Smartphone &s) {
+        os << "Model: " << s.model << ", Battery: " << s.battery << " mAh";
+        return os;
+    }
+};
+
+int main() {
+    Smartphone s1;
+    Smartphone s2("iPhone 15", 3200);
+    Smartphone s3 = s2;
+    s1 = s3;
+
+    cout << s1 << endl;
+    cout << s2 << endl;
+    cout << s3 << endl;
+    return 0;
+}

@@ -1,0 +1,33 @@
+Exercise 19: A Guitar class
+
+Create a class Flower with brand (string) and strings (int).
+
+Implement:
+
+Default constructor
+
+Parametrized constructor
+
+Copy constructor
+
+Assignment operator
+
+Destructor
+
+operator<< to print "Brand: b, Strings: s".
+
+In main(), create, copy, and print points.
+
+Your main:
+
+int main() {
+    Guitar g1;
+    Guitar g2("Fender", 6);
+    Guitar g3 = g2;
+    g1 = g3;
+
+    cout << g1 << endl;
+    cout << g2 << endl;
+    cout << g3 << endl;
+    return 0;
+}

@@ -90,10 +90,14 @@ def test_subject(level: str):
     shutil.copy(solution_file, dst_file)
 
     exe_file = os.path.join(BUILD_DIR, "program.out")
+    COMMON_FLAGS = ["-Wall", "-Wextra", "-Werror"]
+
     if solution_file.endswith(".cpp"):
-        compiler = ["c++", "-std=c++17", "-o", exe_file, dst_file]
+        # C++98 as requested
+        compiler = ["c++", "-std=c++98", *COMMON_FLAGS, "-o", exe_file, dst_file]
     else:
-        compiler = ["gcc", "-std=c11", "-o", exe_file, dst_file]
+        # Keep C submissions strict too (closest analogue for C is C99)
+        compiler = ["gcc", "-std=c99", *COMMON_FLAGS, "-o", exe_file, dst_file]
 
     try:
         subprocess.run(compiler, check=True, capture_output=True, text=True)
@@ -131,7 +135,8 @@ if __name__ == "__main__":
 
             choice = input(f"Choose a level (1-{len(levels)}) or type level name (e.g., level1), or EXIT: ").strip().lower()
 
-            if choice.upper() == "EXIT":
+            # ✅ Fixed: compare to lowercase "exit"
+            if choice == "exit":
                 clear_folder(SOLUTIONS_DIR)
                 clear_folder(TRACE_DIR)
                 clear_folder(BUILD_DIR)
@@ -146,7 +151,7 @@ if __name__ == "__main__":
                 print("❌ Invalid choice, try again.\n")
                 continue
 
-            # ✅ New: Confirm the chosen level, but don't run yet
+            # ✅ Confirm the chosen level, but don't run yet
             print(f"\n✅ Level chosen: {current_level}")
             print("Press Enter to generate an exercise, or type NewNew to pick another level.\n")
             continue  # go back to main loop

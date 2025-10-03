@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Bicycle {
+private:
+    string type;
+    int gears;
+public:
+    Bicycle() : type(""), gears(0) {}
+    Bicycle(string t, int g) : type(t), gears(g) {}
+    Bicycle(const Bicycle &b) : type(b.type), gears(b.gears) {}
+    Bicycle& operator=(const Bicycle &b) {
+        if (this != &b) {
+            type = b.type;
+            gears = b.gears;
+        }
+        return *this;
+    }
+    ~Bicycle() {}
+
+    friend ostream& operator<<(ostream &os, const Bicycle &b) {
+        os << "Type: " << b.type << ", Gears: " << b.gears;
+        return os;
+    }
+};
+
+int main() {
+    Bicycle b1;
+    Bicycle b2("Mountain", 21);
+    Bicycle b3 = b2;
+    b1 = b3;
+
+    cout << b1 << endl;
+    cout << b2 << endl;
+    cout << b3 << endl;
+    return 0;
+}

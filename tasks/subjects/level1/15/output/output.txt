@@ -1,0 +1,3 @@
+Material: Wood, Weight: 12 kg
+Material: Wood, Weight: 12 kg
+Material: Wood, Weight: 12 kg

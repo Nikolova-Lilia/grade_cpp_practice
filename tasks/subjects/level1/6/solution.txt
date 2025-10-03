@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Car {
+private:
+    string brand;
+    int year;
+public:
+    Car() : brand(""), year(0) {}
+    Car(string b, int y) : brand(b), year(y) {}
+    Car(const Car &c) : brand(c.brand), year(c.year) {}
+    Car& operator=(const Car &c) {
+        if (this != &c) {
+            brand = c.brand;
+            year = c.year;
+        }
+        return *this;
+    }
+    ~Car() {}
+
+    friend ostream& operator<<(ostream &os, const Car &c) {
+        os << "Brand: " << c.brand << ", Year: " << c.year;
+        return os;
+    }
+};
+
+int main() {
+    Car c1;
+    Car c2("Toyota", 2020);
+    Car c3 = c2;
+    c1 = c3;
+
+    cout << c1 << endl;
+    cout << c2 << endl;
+    cout << c3 << endl;
+
+    return 0;
+}

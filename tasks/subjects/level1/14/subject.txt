@@ -1,0 +1,33 @@
+Exercise 14: A Pen class
+
+Create a class Pen with color (string) and length (int, cm).
+
+Implement:
+
+Default constructor
+
+Parametrized constructor
+
+Copy constructor
+
+Assignment operator
+
+Destructor
+
+operator<< to print "Color: c, Length: l cm".
+
+In main(), create, copy, and print points.
+
+Your main:
+
+int main() {
+    Pen p1;
+    Pen p2("Blue", 15);
+    Pen p3 = p2;
+    p1 = p3;
+
+    cout << p1 << endl;
+    cout << p2 << endl;
+    cout << p3 << endl;
+    return 0;
+}
